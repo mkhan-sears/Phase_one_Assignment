@@ -10,12 +10,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableBatchProcessing
 public class Phase1WithH2Application {
-
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
  
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Phase1WithH2Application.class, args);
 	}

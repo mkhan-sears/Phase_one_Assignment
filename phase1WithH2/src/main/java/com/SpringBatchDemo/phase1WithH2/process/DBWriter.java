@@ -22,6 +22,7 @@ public class DBWriter implements ItemWriter<Person>{
 	public void write(List<? extends Person> p) throws Exception {
 		System.out.println("Data Saved for Users: " + p);
         PR.saveAll(p);
+	//RestClients.callCreatePersonAPI(p);
 		
 	}
 

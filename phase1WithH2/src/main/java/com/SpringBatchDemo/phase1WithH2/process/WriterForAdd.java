@@ -24,7 +24,4 @@ public class WriterForAdd implements ItemWriter<Address>{
         AR.saveAll(add);
 		
 	}
-
-
-	
 }

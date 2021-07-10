@@ -86,7 +86,7 @@ public class PersonBatchConfiguration {
 			lineTokenizer.setDelimiter(",");
 			lineTokenizer.setStrict(false);
 			
-			lineTokenizer.setNames(new String[] {"Last_name", "First_name", "phone","email", "title", "designation"});
+			lineTokenizer.setNames(new String[] {"id","Last_name", "First_name", "phone","email", "title", "designation"});
 			
 			BeanWrapperFieldSetMapper<Person> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
 			fieldSetMapper.setTargetType(Person.class);
@@ -131,4 +131,5 @@ public class PersonBatchConfiguration {
 		return defaultLineMapper;
 		 
 	 }
+	 
 }

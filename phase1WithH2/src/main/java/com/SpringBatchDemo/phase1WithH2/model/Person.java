@@ -1,36 +1,38 @@
 package com.SpringBatchDemo.phase1WithH2.model;
 
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Person {
 	@Id
-	
+	private long ID;
 	private String last_name;
-	
 	private String first_name;
 	private String phone;
 	private String email;
 	private String title;
 	private String designation;
 	
-	public static String[] fields(){
-		return new String[] {"last_name", "first_name" , "phone", "email","title","designation"};
-		}
-	
 	public Person() {
 	
 	}
-	public Person(String last_name, String first_name, String phone, String email, String title, String designation) {
+	public Person(long ID , String last_name, String first_name, String phone, String email, String title, String designation) {
 		super();
+		this.ID = ID;
 		this.last_name = last_name;
 		this.first_name = first_name;
 		this.phone = phone;
 		this.email = email;
 		this.title = title;
 		this.designation = designation;
+	}
+	public long getID() {
+		return ID;
+	}
+	public void setID(long iD) {
+		ID = iD;
 	}
 	public String getLast_name() {
 		return last_name;

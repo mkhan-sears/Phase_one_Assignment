@@ -1,9 +1,10 @@
 package com.SpringBatchDemo.phase1WithH2.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-
+import org.assertj.core.util.Arrays;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
@@ -16,18 +17,29 @@ import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteExcep
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.SpringBatchDemo.phase1WithH2.model.Person;
+import com.SpringBatchDemo.phase1WithH2.repos.personRepository;
 
 @RestController
 @RequestMapping("/Done")
 public class ControllerPerson {
 	
 	@Autowired
+	private personRepository personRepo;
+	
+
+	@Autowired
 	JobLauncher jobLauncher;
 	
 	@Autowired
 	Job job;
+	
+
 	
 	@GetMapping
 	public BatchStatus load() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException{
@@ -44,4 +56,5 @@ public class ControllerPerson {
 	}
 	return jobExecution.getStatus();
 	}
+	
 }

@@ -6,9 +6,11 @@ import java.io.FileWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.SpringBatchDemo.phase1WithH2.model.Address;
+import com.SpringBatchDemo.phase1WithH2.model.Person;
 
 
 
@@ -16,6 +18,7 @@ import com.SpringBatchDemo.phase1WithH2.model.Address;
 public class ProcessorForADD implements ItemProcessor<Address, Address>{
 	private static final Logger log =  LoggerFactory.getLogger(ProcessorForADD.class);
 
+	
 	int count=0;
 	@Override
 	public Address process(Address add) throws Exception {
@@ -34,8 +37,7 @@ public class ProcessorForADD implements ItemProcessor<Address, Address>{
     private boolean check(Address add) {
         String s = "S";
         if(  ((add.getAddressType().contains(s)) && (!add.getAddressType2().contains(s))) ||
-                ((add.getAddressType2().contains(s)) && (!add.getAddressType().contains(s)))
-                ){
+                ((add.getAddressType2().contains(s)) && (!add.getAddressType().contains(s)))  ){
             return true;
         }
 
